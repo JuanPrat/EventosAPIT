@@ -1,0 +1,53 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.main-body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-gap: 1px;
+  height: 100vh;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #196844;
+}
+
+nav #hamburguer-button {
+  height: 25px;
+  width: 25px;
+}
+
+nav #logo {
+  height: 50px;
+  width: 100px;
+}
+
+nav #perfil {
+  height: 25px;
+  width: 25px;
+}
+
+.eventos {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-gap: 20px;
+}
+
+form {
+  margin: 30px;
+}
+
+.evento {
+  display: flex;
+  justify-content: center;
+}
+
+
+

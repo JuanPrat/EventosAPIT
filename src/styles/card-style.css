@@ -1,0 +1,16 @@
+.card {
+    height: 20rem;
+    width: 15rem;
+    border-radius: 13px;
+    background-color: #196844;
+}
+
+.card img {
+    height: 100px;
+    width: 100px;
+}
+
+.card button {
+    height: 60px;
+    width: 150px;
+}
