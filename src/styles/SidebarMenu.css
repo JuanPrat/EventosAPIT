@@ -1,0 +1,26 @@
+.container-hidden {
+    display: none;
+    transition: 1s;
+}
+
+.container {
+    position: relative;
+    float: right;
+    width: 25vw;
+    height: 100vh;
+    display: flex;
+    background-color: cadetblue;
+    flex-direction: column;
+    transition: 1s;
+}
+
+.container button {
+    width: 100%;
+    border: black solid 1px;
+}
+
+.container button:hover {
+    background-color: cadetblue;
+}
+
+

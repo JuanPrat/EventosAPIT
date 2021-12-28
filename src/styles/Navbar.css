@@ -1,0 +1,30 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #196844;
+    height: 40px;
+  }
+  
+  nav #hamburguer-button {
+    height: 40px;
+    width: 40px;
+    background-color: cadetblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  nav #logo {
+    height: 40px;
+    width: 100px;
+  }
+  
+  nav #perfil {
+    height: 40px;
+    width: 40px;
+  }
+
+  .profile-menu {
+      display: flex;
+  }
