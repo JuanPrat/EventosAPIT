@@ -3,6 +3,7 @@
     width: 15rem;
     border-radius: 13px;
     background-color: #196844;
+    box-shadow: black;
 }
 
 .card img {

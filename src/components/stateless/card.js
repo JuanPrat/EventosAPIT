@@ -1,23 +1,21 @@
 import React, { useEffect } from 'react';
+import {Link} from '@reach/router'
 import '../../styles/card-style.css'
 
-
-const Card = (datosEntrada) => {
-    debugger
-    const {title, description, img} = datosEntrada;
-    debugger
+export const Card = (datosEntrada) => {
+    const { eventTitle, eventDescription, eventImg, speaker, ubication, date } = datosEntrada;
     return (
         <div className="card">
             <div>
-                <p>{title}</p>
-                <img src={img} alt="imagen del evento"/>
-                <p>{description}</p>
+                <p>{eventTitle}</p>
+                <img src={eventImg} alt="imagen del evento" />
+                <p>{eventDescription}</p>
             </div>
             <div>
-                <button>Inscribirme</button>
+                <Link to={`/eventPage/${eventImg}/${eventTitle}/${eventDescription}/${speaker}/${ubication}/${date}`}>
+                    <button>Ver Detalle</button>
+                </Link>
             </div>
         </div>
     )
 }
-
-export default Card;
