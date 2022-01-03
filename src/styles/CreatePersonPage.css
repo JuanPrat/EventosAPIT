@@ -1,0 +1,9 @@
+.create-person-main-content{
+    height: 100%;
+    width: 100%;
+}
+
+.create-person-form{
+    display: flex;
+    flex-direction: column;
+}
