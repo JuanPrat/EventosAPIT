@@ -4,6 +4,7 @@ import { Router } from '@reach/router'
 import {Home}  from './pages/Home';
 import {EventPage} from './pages/EventPage'
 import Navbar from './components/state/Navbar';
+import { AdministrationPage } from './pages/AdministrationPage';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Router>
         <Home path="/"></Home>
         <EventPage path="/eventPage/:eventImg/:eventTitle/:eventDescription/:speaker/:ubication/:date"></EventPage>
+        <AdministrationPage path="/administration/"></AdministrationPage>
       </Router>
     </div>
   );

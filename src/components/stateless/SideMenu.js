@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from '@reach/router'
 import '../../styles/SidebarMenu.css'
 
 export const SideMenu = (data) => {
@@ -11,11 +12,14 @@ export const SideMenu = (data) => {
 
     return (
         <div id="sidebar-container" className='container'>
+            <Link to='/administration/'>
                 <button>Administrar</button>
-                <button>Mis Eventos</button>
-                <button>Inscripciones</button>
-                <button>Perfil</button>
-                <button>Cerrar Sesión</button>
+            </Link>
+
+            <button>Mis Eventos</button>
+            <button>Inscripciones</button>
+            <button>Perfil</button>
+            <button>Cerrar Sesión</button>
         </div>
     )
 }
