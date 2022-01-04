@@ -1,5 +1,5 @@
 export const AdministrationLandPage = ()=> {
     return(
-        <p>Modulo de administracion</p>
+        <h1>Modulo de administracion</h1>
     )
 }

@@ -1,9 +1,9 @@
-.create-person-main-content{
+.administration-main-content{
     height: 100%;
     width: 100%;
 }
 
-.create-person-form{
+.administration-form{
     display: flex;
     flex-direction: column;
 }
