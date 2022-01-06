@@ -20,10 +20,7 @@ export const CreateInstitutionPage = () => {
                 <input type="email" name="email" placeholder="Email"></input>
                 <input type="text" name="cellphone" placeholder="cellphone"></input>
                 <input type="text" list="institutions" placeholder="Instituciones"></input>
-                <datalist id="institutions" name="institution">
-                    <option value="Politecnico Jaime Isaza Cadavid"></option>
-                    <option value="other"></option>
-                </datalist>
+                
             </form>
             <button onClick={handleAddInstitution}>Agregar</button>
             <table>

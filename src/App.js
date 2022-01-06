@@ -4,6 +4,7 @@ import { Router } from '@reach/router';
 import { Home } from './pages/Home';
 import { EventPage } from './pages/EventPage'
 import Navbar from './components/state/Navbar';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { AdministrationPage } from './pages/AdministrationPage';
 
 function App() {
