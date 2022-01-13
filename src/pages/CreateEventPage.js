@@ -1,12 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import '../styles/AdministrationMainContent.css'
 import { Table, Modal, Button } from 'react-bootstrap'
 import { CreateEventModal } from "../components/stateless/modals/CreateEventModal";
-
+const axios = require('axios');
 
 export const CreateEventPage = () => {
 
+    const [events, setEvents] = useState([])
 
+let tableBody = () => {
+    var body = []
+    events.forEach(company => {
+      body.push(<tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>)
+    })
+    return body;
+  }
+
+  useEffect(() => {
+    axios.get('https://ancient-plains-23826.herokuapp.com/env-eventos')
+      .then((response) => {
+        setEvents(response.data)
+      })
+  })
 
     return (
         <div className="administration-main-content">
