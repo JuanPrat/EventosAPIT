@@ -1,9 +1,13 @@
 .card {
-    height: 20rem;
+    height: auto;
     width: 15rem;
     border-radius: 13px;
     background-color: #196844;
     box-shadow: black;
+}
+
+.card .title {
+    margin: 10px;
 }
 
 .card img {
@@ -11,7 +15,8 @@
     width: 10rem;
 }
 
-.card button {
+.card .button {
+    margin: 10px;
     height: 3rem;
     width: 10rem;
 }

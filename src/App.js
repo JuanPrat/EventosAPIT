@@ -6,8 +6,9 @@ import { EventPage } from './pages/EventPage'
 import Navbar from './components/state/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { AdministrationPage } from './pages/AdministrationPage';
+import {Footer} from './components/stateless/Footer'
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <header>
@@ -18,10 +19,11 @@ function App() {
       </header>
       <Navbar></Navbar>
       <Router>
-        <Home path="/"></Home>
+        <Home path="/" firebaseApp={props.app}></Home>
         <EventPage path="/eventPage/:eventImg/:eventTitle/:eventDescription/:speaker/:ubication/:date"></EventPage>
         <AdministrationPage path="/administration/"></AdministrationPage>
       </Router>
+      <Footer></Footer>
     </div>
   );
 

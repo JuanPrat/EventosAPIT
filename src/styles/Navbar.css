@@ -4,6 +4,7 @@ nav {
     align-items: center;
     background-color: #196844;
     height: 40px;
+    z-index: 2;
   }
   
   nav #hamburguer-button {
@@ -16,8 +17,8 @@ nav {
   }
   
   nav #logo {
-    height: 40px;
-    width: 100px;
+    height: 50px;
+    width: 50px;
   }
   
   nav #perfil {

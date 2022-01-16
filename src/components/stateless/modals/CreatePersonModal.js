@@ -61,7 +61,7 @@ export const CreatePersonModal = (props) => {
                         <input type="text" name="second-name" placeholder="Segundo nombre" required></input>
                         <input type="email" name="email" placeholder="Email" required></input>
                         <input type="text" name="cellphone" placeholder="cellphone" required></input>
-                        <input type="text" list="institutions" placeholder="Instituciones" name="institutions-input" required onChange={event => handleOtherClick(event)}></input>
+                        <input type="text" list="institutions" placeholder="Empresa/Institucion" name="institutions-input" required onChange={event => handleOtherClick(event)}></input>
                         <input type="text" list="type-person" placeholder="Tipo usuario"></input>
                         <datalist id="institutions" name="institution">
                             <option value="Politecnico Jaime Isaza Cadavid"></option>

@@ -4,7 +4,8 @@
 }
 
 .event{
-    height: 100vh;
+    margin-top: 8rem;
+    height: 90vh;
     display: flex;
     flex-direction: column;
 }
@@ -23,12 +24,18 @@
     display: flex;
 }
 
-.event img {
-    height: 100px;
-    width: 100px;
+.event #event-img-id {
+    height: 40vh;
+    width: 100vw;
     color: grey;
 }
- button {
-    height: 60px;
-    width: 150px;
+.subscribe-button-container {
+    display: flex;
+    justify-content: center;
 }
+
+.subscribe-button {
+    height: 50px;
+    width: 300px;
+}
+

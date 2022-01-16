@@ -7,6 +7,7 @@ import { CreateCompanyPage } from "./CreateCompanyPage";
 import { CreateInstitutionPage } from "./CreateInstitutionPage";
 import { EditPublicityPage } from "./EditPublicityPage";
 import { AdministrationLandPage } from "./AdministrationLandPage";
+import { Button } from 'react-bootstrap'
 
 
 export const AdministrationPage = () => {
@@ -40,17 +41,16 @@ export const AdministrationPage = () => {
     return (
         <div className="administration-container">
             <div className="side-menu">
-                <div id="sidebar-container" className='container'>
-                    <button onClick={(event) => handleAdministrationButton(event)} id="register-people">Registrar Personas</button>
-                    <button onClick={(event) => handleAdministrationButton(event)} id="register-event">Crear Evento</button>
-                    <button onClick={(event) => handleAdministrationButton(event)} id="register-company">Registrar Empresa</button>
-                    <button onClick={(event) => handleAdministrationButton(event)} id="edit-publicity">Editar Publicidad</button>
+                <div id="sidebar-container" className='container-sidebar-admin'>
+                    <Button className="administration-button" onClick={(event) => handleAdministrationButton(event)} id="register-people">Registrar Personas</Button>
+                    <Button className="administration-button" onClick={(event) => handleAdministrationButton(event)} id="register-event">Crear Evento</Button>
+                    <Button className="administration-button" onClick={(event) => handleAdministrationButton(event)} id="register-company">Registrar Empresa</Button>
+                    <Button className="administration-button" onClick={(event) => handleAdministrationButton(event)} id="edit-publicity">Editar Publicidad</Button>
                 </div>
             </div>
             <div className="main-content">
                 {renderSwitchPage()}
             </div>
-            
         </div>
     )
 }
