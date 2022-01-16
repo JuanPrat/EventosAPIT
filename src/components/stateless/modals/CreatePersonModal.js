@@ -1,15 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Table, Modal, Button } from 'react-bootstrap'
+import { CompanyModal } from './CreateCompanyModal'
+import '../../../App.css'
+const axios = require('axios');
 
-export const CreatePersonModal = () => {
+export const CreatePersonModal = (props) => {
 
     const [showPeopleModal, changeShowPeopleModal] = useState(false);
-    const handleClose = () => changeShowPeopleModal(false);
-    const handleShow = () => changeShowPeopleModal(true);
+    const [showCompanyModal, changeShowCompanyModal] = useState(false);
+    const [showClicked, setShowClicked] = useState(false);
+    const [companies, setCompanies] = useState([])
+    const handleClose = () => {
+
+        changeShowPeopleModal(false);
+    }
+
 
     const handleOtherClick = (event) => {
-        if (event.target.vale === 'Otro') {
-
+        debugger
+        if (event.target.value === 'Otro') {
+            debugger
+            if (event.target.name == 'institutions-input') {
+                debugger
+                changeShowCompanyModal(true)
+            }
         }
     }
 
@@ -17,11 +31,22 @@ export const CreatePersonModal = () => {
 
     }
 
+    useEffect(() => {
+        debugger
+        axios.get('https://ancient-plains-23826.herokuapp.com/emp-empresas')
+            .then((response) => {
+                setCompanies(response.data)
+            })
+        if (showClicked) {
+            changeShowPeopleModal(true)
+        }
+        setShowClicked(true);
+    }, [props._show, showCompanyModal])
+
     return (
         <>
-        <Button variant="primary" onClick={handleShow}>
-            Crear Persona
-        </Button>
+
+            <CompanyModal _show={showCompanyModal}></CompanyModal>
             <Modal show={showPeopleModal} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Crear Persona</Modal.Title>
@@ -36,7 +61,7 @@ export const CreatePersonModal = () => {
                         <input type="text" name="second-name" placeholder="Segundo nombre" required></input>
                         <input type="email" name="email" placeholder="Email" required></input>
                         <input type="text" name="cellphone" placeholder="cellphone" required></input>
-                        <input type="text" list="institutions" placeholder="Instituciones" required onChange={event => handleOtherClick(event)}></input>
+                        <input type="text" list="institutions" placeholder="Instituciones" name="institutions-input" required onChange={event => handleOtherClick(event)}></input>
                         <input type="text" list="type-person" placeholder="Tipo usuario"></input>
                         <datalist id="institutions" name="institution">
                             <option value="Politecnico Jaime Isaza Cadavid"></option>

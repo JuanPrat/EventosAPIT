@@ -7,6 +7,9 @@ const axios = require('axios');
 export const CreateCompanyPage = () => {
 
   const [companies, setCompanies] = useState([])
+  const [showCompanyModal, changeShowCompanyModal] = useState(false);
+
+  const handleShow = () => changeShowCompanyModal(true);
   
 
   const handleAddCompany = () => {
@@ -32,13 +35,16 @@ export const CreateCompanyPage = () => {
       .then((response) => {
         setCompanies(response.data)
       })
+      
   })
 
   return (
     <div className="administration-main-content">
       <h1>Empresas</h1>
-
-      <CompanyModal></CompanyModal>
+      <Button variant="primary" onClick={handleShow}>
+            Crear Empresa
+        </Button>
+      <CompanyModal _show={showCompanyModal}></CompanyModal>
 
       <Table striped bordered hover>
         <thead>

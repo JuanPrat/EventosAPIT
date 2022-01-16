@@ -6,13 +6,21 @@ import { CreatePersonModal } from "../components/stateless/modals/CreatePersonMo
 
 export const CreatePersonPage = () => {
 
+    const [showModal, setShowModal] = useState(false)
+
+    const handleShow = () => {
+        setShowModal(!showModal);
+    }
 
     return (
 
 
         <div className="administration-main-content">
             <h1>Personas</h1>
-            <CreatePersonModal></CreatePersonModal>
+            <Button variant="primary" onClick={handleShow}>
+                Crear Persona
+            </Button>
+            <CreatePersonModal _show={showModal}></CreatePersonModal>
             <Table striped bordered hover>
                 <thead>
                     <tr>

@@ -3,7 +3,7 @@ import { Modal, Button } from 'react-bootstrap'
 const axios = require('axios');
 
 
-export const CompanyModal = () => {
+export const CompanyModal = (props) => {
 
     const handleAddCompany = () => {
         const company = {
@@ -35,7 +35,9 @@ export const CompanyModal = () => {
         telephone: '',
         status: ''
     }]);
-
+    const [showClicked, setShowClicked] = useState(false);
+    const [showCompanyModal, changeShowCompanyModal] = useState(false);
+    const handleClose = () => changeShowCompanyModal(false);
     
 
     const obtenerInformacion = (e) => {
@@ -45,14 +47,19 @@ export const CompanyModal = () => {
         });
     };
 
-    const [showPeopleModal, changeShowPeopleModal] = useState(false);
-    const handleClose = () => changeShowPeopleModal(false);
-    const handleShow = () => changeShowPeopleModal(true);
+    useEffect(() => {
+        if(showClicked){
+            debugger
+            changeShowCompanyModal(true)
+        }
+        setShowClicked(true)
+    }, [props._show])
+
+
+
     return <>
-        <Button variant="primary" onClick={handleShow}>
-            Crear Empresa
-        </Button>
-        <Modal show={showPeopleModal} onHide={handleClose}>
+        
+        <Modal show={showCompanyModal} onHide={handleClose}>
             <Modal.Header closeButton>
                 <Modal.Title>Crear Empresa</Modal.Title>
             </Modal.Header>
