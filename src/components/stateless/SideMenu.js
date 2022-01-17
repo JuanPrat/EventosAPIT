@@ -5,6 +5,11 @@ import { Button } from 'react-bootstrap'
 
 export const SideMenu = (data) => {
 
+    var firebase = require('firebase');
+    var firebaseui = require('firebaseui');
+
+    var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
     useEffect(() => {
         const element = document.getElementById("sidebar-container")
         const actualClass = element.className;
@@ -23,16 +28,19 @@ export const SideMenu = (data) => {
                 <Button variant="sucess" className="button-nav" onClick={handleCloseSideMenu}>Administrar</Button>
             </Link>
             <Link to="/">
-                <Button variant="sucess" className ="button-nav">Mis Eventos</Button>
+                <Button variant="sucess" className="button-nav">Mis Eventos</Button>
             </Link>
             <Link to="/">
-                <Button variant="sucess" className ="button-nav">Inscripciones</Button>
+                <Button variant="sucess" className="button-nav">Inscripciones</Button>
             </Link>
             <Link to="/">
-                <Button variant="sucess" className ="button-nav">Perfil</Button>
+                <Button variant="sucess" className="button-nav">Iniciar Sesión</Button>
             </Link>
             <Link to="/">
-                <Button variant="sucess" className ="button-nav">Cerrar Sesión</Button>
+                <Button variant="sucess" className="button-nav">Perfil</Button>
+            </Link>
+            <Link to="/">
+                <Button variant="sucess" className="button-nav">Cerrar Sesión</Button>
             </Link>
         </div>
     )

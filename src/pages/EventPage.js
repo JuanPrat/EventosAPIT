@@ -35,11 +35,10 @@ export const EventPage = (data) => {
                     </div>
                     <div className='speaker'>
                         <img className='speaker-img'></img>
-                        <h1>{speaker}</h1>
+                        <h1 className='event-page-label'>Ponente:</h1> <h1>{speaker}</h1>
                     </div>
-                    <p></p>
-                    <h1>{ubication}</h1>
-                    <h1>{date}</h1>
+                    <div><h1 className='event-page-label'>Lugar</h1><h1> {ubication}</h1></div>
+                    <div><h1 className='event-page-label'>Fecha</h1><h1> {date}</h1></div>
                 </section>
                 <div className="subscribe-button-container">
                     <Button className="subscribe-button" variant="success">Inscribirme !</Button>

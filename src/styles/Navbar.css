@@ -3,13 +3,13 @@ nav {
     justify-content: space-between;
     align-items: center;
     background-color: #196844;
-    height: 40px;
+    height: 60px;
     z-index: 2;
   }
   
   nav #hamburguer-button {
-    height: 40px;
-    width: 40px;
+    height: 60px;
+    width: 60px;
     background-color: cadetblue;
     display: flex;
     flex-direction: column;
@@ -17,13 +17,14 @@ nav {
   }
   
   nav #logo {
-    height: 50px;
-    width: 50px;
+    height: 60px;
+    width: 60px;
+    margin-left: 30px;
   }
   
   nav #perfil {
-    height: 40px;
-    width: 40px;
+    height: 60px;
+    width: 60px;
   }
 
   .profile-menu {
