@@ -5,10 +5,7 @@ import { Button } from 'react-bootstrap'
 
 export const SideMenu = (data) => {
 
-    var firebase = require('firebase');
-    var firebaseui = require('firebaseui');
 
-    var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
     useEffect(() => {
         const element = document.getElementById("sidebar-container")
