@@ -19,7 +19,6 @@ export const CompanyModal = (props) => {
             f_creacion: "string",
             f_modificacion: "string"
         }
-        debugger
         axios.post('https://ancient-plains-23826.herokuapp.com/emp-empresas', company);
         handleClose()
     }
@@ -37,8 +36,9 @@ export const CompanyModal = (props) => {
     }]);
     const [showClicked, setShowClicked] = useState(false);
     const [showCompanyModal, changeShowCompanyModal] = useState(false);
+    const [textoBoton, setTextoBoton] = useState("");
     const handleClose = () => changeShowCompanyModal(false);
-    
+
 
     const obtenerInformacion = (e) => {
         guardarDatos({
@@ -48,31 +48,48 @@ export const CompanyModal = (props) => {
     };
 
     useEffect(() => {
-        if(showClicked){
-            debugger
+        debugger
+        if (showClicked) {
             changeShowCompanyModal(true)
+            debugger
+            if(props.companyToEdit != undefined){
+                guardarDatos({
+                    nit: props.companyToEdit[0].nit,
+                    social_reason: props.companyToEdit[0].razon_social,
+                    country: props.companyToEdit[0].country,
+                    departament: props.companyToEdit[0].departament,
+                    municipality: props.companyToEdit[0].id_municipio,
+                    address: props.companyToEdit[0].direccion,
+                    telephone: props.companyToEdit[0].telefono,
+                    status: props.companyToEdit[0].estado
+                })
+                setTextoBoton("Editar")
+            }
+            else {
+                setTextoBoton("Crear")
+            }
         }
         setShowClicked(true)
-    }, [props._show])
+    }, [props._show, props.companyToEdit])
 
 
 
     return <>
-        
+
         <Modal show={showCompanyModal} onHide={handleClose}>
             <Modal.Header closeButton>
                 <Modal.Title>Crear Empresa</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <form autoComplete="on" className="administration-form">
-                    <input type="text" name="nit" placeholder="NIT" required onChange={obtenerInformacion}></input>
-                    <input type="text" name="social_reason" placeholder="Razón social" required onChange={obtenerInformacion}></input>
-                    <input type="text" name="country" list="countries" placeholder="País" required onChange={obtenerInformacion}></input>
-                    <input type="text" name="departament" placeholder="Departamento" required onChange={obtenerInformacion}></input>
-                    <input type="text" name="municipality" list="municipalities" placeholder="Municipio" required onChange={obtenerInformacion}></input>
-                    <input type="text" name="address" placeholder="Dirección" required onChange={obtenerInformacion}></input>
-                    <input type="text" name="telephone" placeholder="Telefono" required onChange={obtenerInformacion}></input>
-                    <input type="text" placeholder="Estado" list="status" name="status" required onChange={obtenerInformacion}></input>
+                    <input type="text" id="nit" name="nit" placeholder="NIT" required onChange={obtenerInformacion} value={datos.nit}></input>
+                    <input type="text" id="social_reason" name="social_reason" placeholder="Razón social" required onChange={obtenerInformacion} value={datos.social_reason}></input>
+                    <input type="text" id="country" name="country" list="countries" placeholder="País" required onChange={obtenerInformacion} value={datos.country}></input>
+                    <input type="text" id="departament" name="departament" placeholder="Departamento" required onChange={obtenerInformacion} value={datos.departament}></input>
+                    <input type="text" id="municipality" name="municipality" list="municipalities" placeholder="Municipio" required onChange={obtenerInformacion} value={datos.municipality}></input>
+                    <input type="text" id="address" name="address" placeholder="Dirección" required onChange={obtenerInformacion} value={datos.address}></input>
+                    <input type="text" id="telephone" name="telephone" placeholder="Telefono" required onChange={obtenerInformacion} value={datos.telephone}></input>
+                    <input type="text" id="status" placeholder="Estado" list="status" name="status" required onChange={obtenerInformacion} value={datos.status}></input>
                     <datalist id="countries" name="country">
                         <option value="Colombia"></option>
                         <option value="otro"></option>
@@ -93,7 +110,7 @@ export const CompanyModal = (props) => {
                     Cerrar
                 </Button>
                 <Button variant="primary" onClick={handleAddCompany}>
-                    Crear
+                    {textoBoton}
                 </Button>
             </Modal.Footer>
         </Modal>

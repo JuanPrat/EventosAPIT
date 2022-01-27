@@ -4,7 +4,8 @@
 }
 
 .event{
-    margin-top: 8rem;
+    
+    margin-bottom: 8rem;
     height: 90vh;
     display: flex;
     flex-direction: column;
