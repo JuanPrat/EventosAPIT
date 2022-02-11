@@ -1,37 +1,100 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Table, Modal, Button } from 'react-bootstrap'
+const axios = require('axios');
 
-export const CreateEventModal = () => {
+export const CreateEventModal = (props) => {
 
-    const [showPeopleModal, changeShowPeopleModal] = useState(false);
-    const handleClose = () => changeShowPeopleModal(false);
-    const handleShow = () => changeShowPeopleModal(true);
+    const [datos, guardarDatos] = useState([{
+        company_name: "companyName",
+        speaker: "speaker",
+        description: "description",
+        fecha: "fecha",
+        hourBegin: "hourBegin",
+        hourFinish: "hourFinish",
+        typeEvent: "typeEvent",
+        place: "place",
+        url: "url",
+        image: "image",
+        state: "state"
+    }]);
+
+    const [showClicked, setShowClicked] = useState(false);
+    const [showEventModal, changeShowEventModal] = useState(false);
+    const [textoBoton, setTextoBoton] = useState("");
+    const handleClose = () => changeShowEventModal(false);
+    const handleShow = () => changeShowEventModal(true);
 
     const handleAddEvent = () => {
-
+        debugger
+        const event = {
+            companyName: datos.companyName,
+            speaker: datos.speaker,
+            description: datos.description,
+            fecha: datos.fecha,
+            h_inicio: datos.hourBegin,
+            h_fin: datos.hourFinish,
+            type_event: datos.typeEvent,
+            place: datos.place,
+            url: datos.url,
+            image: datos.image,
+            state: datos.state,
+        }
+        axios.post('http://localhost:3001/env-eventos', event);
+        handleClose()
     }
-    return(
+
+    const obtenerInformacion = (e) => {
+        guardarDatos({
+            ...datos,
+            [e.target.name]: e.target.value,
+        });
+    };
+
+    useEffect(() => {
+        debugger
+        if (showClicked) {
+            changeShowEventModal(true)
+            if (props.eventToEdit != undefined) {
+                debugger
+                guardarDatos({
+                    speaker: props.eventToEdit[0].contacto,
+                    description: props.eventToEdit[0].descripcion,
+                    fecha: props.eventToEdit[0].fecha,
+                    hourBegin: props.eventToEdit[0].h_inicio,
+                    hourFinish: props.eventToEdit[0].h_fin,
+                    typeEvent: props.eventToEdit[0].tipo_evento,
+                    place: props.eventToEdit[0].lugar,
+                    url: props.eventToEdit[0].url,
+                    image: props.eventToEdit[0].image,
+                    state: props.eventToEdit[0].estado,
+                })
+                setTextoBoton("Editar")
+            }
+            else {
+                setTextoBoton("Crear")
+            }
+        }
+        setShowClicked(true)
+    }, [props._show, props.eventToEdit])
+    return (
         <>
-        <Button variant="primary" onClick={handleShow}>
-                Crear Evento
-            </Button>
-            <Modal show={showPeopleModal} onHide={handleClose}>
+            <Modal show={showEventModal} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Crear Persona</Modal.Title>
+                    <Modal.Title>Crear Evento</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <form autoComplete="on" className="administration-form">
-                        <input type="text" name="company-name" placeholder="Nombre" list="companies" required></input>
-                        <input type="text" name="speaker" placeholder="Ponente" required></input>
-                        <textarea type="text" name="description" placeholder="Descripcion" required></textarea>
-                        <input type="date" name="fecha" placeholder="Fecha" required></input>
-                        <input type="time" name="hour-begin" placeholder="Hora inicio" required></input>
-                        <input type="time" name="hour-finish" placeholder="Hora fin" required></input>
-                        <input type="text" name="type-event" placeholder="Tipo Evento" list="type-events" required></input>
-                        <input type="text" name="place" placeholder="Lugar" required></input>
-                        <input type="text" name="url" placeholder="Url"></input>
-                        <input type="file" name="image" placeholder="Imagen"></input>
-                        <input type="text" name="state" placeholder="Estado" list="state"></input>
+                        <input type="text" name="companyName" placeholder="Nombre" list="companies" required onChange={obtenerInformacion} ></input>
+                        <input type="text" name="speaker" placeholder="Ponente" required onChange={obtenerInformacion} value={datos.speaker}></input>
+                        <textarea type="text" name="description" placeholder="Descripcion" required onChange={obtenerInformacion} value={datos.description}></textarea>
+                        <input type="date" name="fecha" placeholder="Fecha" required onChange={obtenerInformacion} value={datos.fecha}></input>
+                        <input type="time" name="hourBegin" placeholder="Hora inicio" required onChange={obtenerInformacion} value={datos.hourBegin}></input>
+                        <input type="time" name="hourFinish" placeholder="Hora fin" required onChange={obtenerInformacion} value={datos.hourFinish}></input>
+                        <input type="text" name="typeEvent" placeholder="Tipo Evento" list="type-events" required onChange={obtenerInformacion} value={datos.typeEvent}></input>
+                        <input type="text" name="place" placeholder="Lugar" required onChange={obtenerInformacion} value={datos.place}></input>
+                        <input type="text" name="url" placeholder="Url" onChange={obtenerInformacion} value={datos.url}></input>
+                        <input type="file" name="image" placeholder="Imagen" onChange={obtenerInformacion} value={datos.image}></input>
+                        <input type="text" name="state" placeholder="Estado" list="state" onChange={obtenerInformacion} value={datos.state}></input>
 
                         <datalist id="companies" name="company">
                             <option value="Sofka Technologies"></option>
@@ -50,12 +113,9 @@ export const CreateEventModal = () => {
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
-                        Close
+                        Cerrar
                     </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                        Save Changes
-                    </Button>
-                    <Button variant = "primary"onClick={handleAddEvent}>Agregar</Button>
+                    <Button variant="primary" onClick={handleAddEvent}>{textoBoton}</Button>
                 </Modal.Footer>
             </Modal>
         </>

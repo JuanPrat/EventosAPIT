@@ -72,10 +72,7 @@ export const CompanyModal = (props) => {
         setShowClicked(true)
     }, [props._show, props.companyToEdit])
 
-
-
     return <>
-
         <Modal show={showCompanyModal} onHide={handleClose}>
             <Modal.Header closeButton>
                 <Modal.Title>Crear Empresa</Modal.Title>
