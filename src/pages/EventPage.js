@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import '../styles/EventPage.css'
 import { Button } from 'react-bootstrap'
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { app } from '../components/state/FirebaseConfig'
+import { SubscribeEventModal } from '../components/stateless/modals/SubscribeEventModal';
 
 export const EventPage = (data) => {
 
@@ -11,6 +12,11 @@ export const EventPage = (data) => {
 
     const storage = getStorage(app)
     const imgRef = ref(storage, 'imagenes-eventos/' + eventImg + '.jpg')
+    const [showModal, changeShowModal] = useState(false);
+
+    const handleSubscribe = ()=> {
+        changeShowModal(!showModal)
+    }
 
     getDownloadURL(imgRef)
         .then((url) => {
@@ -24,12 +30,13 @@ export const EventPage = (data) => {
 
     return (
         <div >
+            <SubscribeEventModal _show={showModal}></SubscribeEventModal>
             <div className='event'>
                 <section className='event-img'>
                     <img id="event-img-id" ></img>
                 </section>
                 <section className='event-info'>
-                    <div class='main-description'>
+                    <div className='main-description'>
                         <h1>{eventTitle}</h1>
                         <h6>{eventDescription}</h6>
                     </div>
@@ -41,10 +48,10 @@ export const EventPage = (data) => {
                     <div><h1 className='event-page-label'>Fecha</h1><h1> {date}</h1></div>
                 </section>
                 <div className="subscribe-button-container">
-                    <Button className="subscribe-button" variant="success">Inscribirme !</Button>
+                    <Button className="subscribe-button" variant="success" onClick={handleSubscribe}>Inscribirme !</Button>
                 </div>
             </div>
-
+        
         </div>
     )
 }

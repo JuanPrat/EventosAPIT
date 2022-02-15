@@ -8,7 +8,9 @@ export const CreateEventPage = () => {
 
     const [events, setEvents] = useState([{
         id: "1",
-        descripcion: "tecno cafe",
+        name: "tecno café",
+        companyName: "Politecnico",
+        descripcion: "evento institucional de programacion",
         contacto: "recamancito",
         fecha: "12-15-2011",
         h_inicio: "12-15-2011",
@@ -33,7 +35,7 @@ export const CreateEventPage = () => {
     }
 
     const handleShow = () => {
-        setShowEventModal(true);
+        setShowEventModal(!showEventModal);
         setEventToEdit(undefined)
     }
 
@@ -42,7 +44,8 @@ export const CreateEventPage = () => {
         events.forEach(event => {
             body.push(<tr>
                 <td>{event.id}</td>
-                <td>{event.descripcion}</td>
+                <td>{event.companyName}</td>
+                <td>{event.name}</td>
                 <td>{event.contacto}</td>
                 <td>{event.fecha}</td>
                 <td>{event.h_inicio}</td>
@@ -63,7 +66,7 @@ export const CreateEventPage = () => {
         <div className="administration-main-content">
             <h1>Eventos</h1>
             <Button variant="primary" onClick={handleShow}>
-                Crear Empresa
+                Crear Evento
             </Button>
             <CreateEventModal eventToEdit={eventToEdit} _show={showEventModal}></CreateEventModal>
             <Table striped bordered hover>
@@ -71,6 +74,7 @@ export const CreateEventPage = () => {
                     <tr>
                         <th>#</th>
                         <th>Empresa/Institución</th>
+                        <th>Nombre</th>
                         <th>Speaker</th>
                         <th>fecha</th>
                         <th>hora inicio</th>
@@ -79,6 +83,8 @@ export const CreateEventPage = () => {
                         <th>Lugar</th>
                         <th>url</th>
                         <th>Estado</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -5,6 +5,7 @@ const axios = require('axios');
 export const CreateEventModal = (props) => {
 
     const [datos, guardarDatos] = useState([{
+        eventName: "eventName",
         company_name: "companyName",
         speaker: "speaker",
         description: "description",
@@ -21,14 +22,18 @@ export const CreateEventModal = (props) => {
     const [showClicked, setShowClicked] = useState(false);
     const [showEventModal, changeShowEventModal] = useState(false);
     const [textoBoton, setTextoBoton] = useState("");
-    const handleClose = () => changeShowEventModal(false);
+    const handleClose = () => {
+        changeShowEventModal(false);
+        guardarDatos({})
+    }
     const handleShow = () => changeShowEventModal(true);
 
     const handleAddEvent = () => {
         debugger
         const event = {
-            companyName: datos.companyName,
+            eventName: datos.eventName,
             speaker: datos.speaker,
+            companyName: datos.companyName,
             description: datos.description,
             fecha: datos.fecha,
             h_inicio: datos.hourBegin,
@@ -57,7 +62,9 @@ export const CreateEventModal = (props) => {
             if (props.eventToEdit != undefined) {
                 debugger
                 guardarDatos({
+                    eventName: props.eventToEdit[0].name,
                     speaker: props.eventToEdit[0].contacto,
+                    companyName: props.eventToEdit[0].companyName,
                     description: props.eventToEdit[0].descripcion,
                     fecha: props.eventToEdit[0].fecha,
                     hourBegin: props.eventToEdit[0].h_inicio,
@@ -80,11 +87,12 @@ export const CreateEventModal = (props) => {
         <>
             <Modal show={showEventModal} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Crear Evento</Modal.Title>
+                    <Modal.Title>{textoBoton} Evento</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <form autoComplete="on" className="administration-form">
-                        <input type="text" name="companyName" placeholder="Nombre" list="companies" required onChange={obtenerInformacion} ></input>
+                    <input type="text" name="eventName" placeholder="NombreEvento" required onChange={obtenerInformacion} value={datos.eventName}></input>
+                        <input type="text" name="companyName" placeholder="Empresa/Institución" list="companies" required onChange={obtenerInformacion} value={datos.companyName} ></input>
                         <input type="text" name="speaker" placeholder="Ponente" required onChange={obtenerInformacion} value={datos.speaker}></input>
                         <textarea type="text" name="description" placeholder="Descripcion" required onChange={obtenerInformacion} value={datos.description}></textarea>
                         <input type="date" name="fecha" placeholder="Fecha" required onChange={obtenerInformacion} value={datos.fecha}></input>
@@ -95,7 +103,9 @@ export const CreateEventModal = (props) => {
                         <input type="text" name="url" placeholder="Url" onChange={obtenerInformacion} value={datos.url}></input>
                         <input type="file" name="image" placeholder="Imagen" onChange={obtenerInformacion} value={datos.image}></input>
                         <input type="text" name="state" placeholder="Estado" list="state" onChange={obtenerInformacion} value={datos.state}></input>
-
+                        <br></br>
+                        <h3>Cargar Vitacoras</h3>
+                        <input type="file" name="vitacoras"></input>
                         <datalist id="companies" name="company">
                             <option value="Sofka Technologies"></option>
                             <option value="Otra"></option>
@@ -109,7 +119,9 @@ export const CreateEventModal = (props) => {
                             <option value="Publicado"></option>
                             <option value="Finalizado"></option>
                         </datalist>
+                        
                     </form>
+                    
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>

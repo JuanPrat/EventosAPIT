@@ -11,7 +11,7 @@ export const CreateCompanyPage = () => {
   const [companyToEdit, setCompanyToEdit] = useState(null)
 
   const handleShow = () => {
-    changeShowCompanyModal(true);
+    changeShowCompanyModal(!showCompanyModal);
     setCompanyToEdit(undefined)
   }
 

@@ -66,6 +66,7 @@ export const CompanyModal = (props) => {
                 setTextoBoton("Editar")
             }
             else {
+                guardarDatos({})
                 setTextoBoton("Crear")
             }
         }
@@ -75,7 +76,7 @@ export const CompanyModal = (props) => {
     return <>
         <Modal show={showCompanyModal} onHide={handleClose}>
             <Modal.Header closeButton>
-                <Modal.Title>Crear Empresa</Modal.Title>
+                <Modal.Title>{textoBoton} Empresa</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <form autoComplete="on" className="administration-form">

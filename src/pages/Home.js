@@ -1,19 +1,35 @@
 import React from 'react'
 import { Card } from '../components/stateless/Card'
-import { getStorage, ref,getDownloadURL } from "firebase/storage";
+import { app } from '../components/state/FirebaseConfig'
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
 
 
 export const Home = (props) => {
 
-  
+  const storage = getStorage(app)
+  const imgRef = ref(storage, 'wallpaper.png')
 
-  
+  getDownloadURL(imgRef)
+    .then((url) => {
+      debugger
+      const img = document.getElementById('wallpaper');
+      img.setAttribute('src', url);
+    })
+    .catch((error) => {
+      // Handle any errors
+    });
+
+
   return (
     <div className="main-body">
       <div className="body">
-        <img src="http://sarsunacollege.ac.in/Images/InnerBanner/Academic/Academic.png" />
-
+        <div className='wallContainer'>
+          <div className="centered"><h1><b>Eventos Apit</b>
+            <br></br><h1>Plataforma de eventos académicos del área de 
+            tecnología</h1></h1></div>
+          <img id="wallpaper" />
+        </div>
         <section className="body">
           <form autoComplete="on">
             <input type="text" name="evento" placeholder="Buscar Evento"></input>

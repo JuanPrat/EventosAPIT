@@ -9,12 +9,23 @@ export const CreatePersonModal = (props) => {
     const [showPeopleModal, changeShowPeopleModal] = useState(false);
     const [showCompanyModal, changeShowCompanyModal] = useState(false);
     const [showClicked, setShowClicked] = useState(false);
-    const [companies, setCompanies] = useState([])
+    const [textoBoton, setTextoBoton] = useState("");
+    const [datos, setDatos] = useState([{
+        typeDocument: "",
+        document: "",
+        firstLastName: "",
+        secondLastName: "",
+        firstName: "",
+        secondName: "",
+        email: "",
+        cellphone: "",
+        institutions: "",
+        typePerson: ""
+    }])
     const handleClose = () => {
-
+        setDatos({})
         changeShowPeopleModal(false);
     }
-
 
     const handleOtherClick = (event) => {
         debugger
@@ -33,36 +44,51 @@ export const CreatePersonModal = (props) => {
 
     useEffect(() => {
         debugger
-        axios.get('https://ancient-plains-23826.herokuapp.com/emp-empresas')
-            .then((response) => {
-                setCompanies(response.data)
-            })
         if (showClicked) {
             changeShowPeopleModal(true)
+            
+            if (props.personToEdit !== undefined) {
+                setDatos({
+                    "typeDocument": props.personToEdit.typeDocument,
+                    "document": props.personToEdit.document,
+                    "firstLastName": props.personToEdit.firstLastName,
+                    "secondLastName": props.personToEdit.secondLastName,
+                    "firstName": props.personToEdit.firstName,
+                    "secondName": props.personToEdit.secondName,
+                    "email": props.personToEdit.email,
+                    "cellphone": props.personToEdit.cellphone,
+                    "institutions": props.personToEdit.institutions,
+                    "typePerson": props.personToEdit.typePerson
+                })
+                setTextoBoton("Editar")
+            }
+            else {
+                setDatos({})
+                setTextoBoton("Crear")
+            }
         }
-        setShowClicked(true);
-    }, [props._show, showCompanyModal])
+        setShowClicked(true)
+    }, [props._show, props.personToEdit])
 
     return (
         <>
-
             <CompanyModal _show={showCompanyModal}></CompanyModal>
             <Modal show={showPeopleModal} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Crear Persona</Modal.Title>
+                    <Modal.Title>{textoBoton} Persona</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <form autoComplete="on" className="administration-form">
-                        <input type="text" name="type-document" placeholder="Tipo documento" required></input>
-                        <input type="text" name="document" placeholder="numero documento" required></input>
-                        <input type="text" name="first-last-name" placeholder="Primer apellido" required></input>
-                        <input type="text" name="second-last-name" placeholder="Segundo apellido" required></input>
-                        <input type="text" name="first-name" placeholder="Primer nombre" required></input>
-                        <input type="text" name="second-name" placeholder="Segundo nombre" required></input>
-                        <input type="email" name="email" placeholder="Email" required></input>
-                        <input type="text" name="cellphone" placeholder="cellphone" required></input>
-                        <input type="text" list="institutions" placeholder="Empresa/Institucion" name="institutions-input" required onChange={event => handleOtherClick(event)}></input>
-                        <input type="text" list="type-person" placeholder="Tipo usuario"></input>
+                        <input type="text" name="typeDocument" placeholder="Tipo documento" required value={datos.typeDocument}></input>
+                        <input type="text" name="document" placeholder="numero documento" required value={datos.document}></input>
+                        <input type="text" name="firstLastName" placeholder="Primer apellido" required value={datos.firstLastName}></input>
+                        <input type="text" name="secondLastName" placeholder="Segundo apellido" required value={datos.secondLastName}></input>
+                        <input type="text" name="firstName" placeholder="Primer nombre" required value={datos.firstName}></input>
+                        <input type="text" name="secondName" placeholder="Segundo nombre" required value={datos.secondName}></input>
+                        <input type="email" name="email" placeholder="Email" required value={datos.email}></input>
+                        <input type="text" name="cellphone" placeholder="cellphone" required value={datos.cellphone}></input>
+                        <input type="text" list="institutions" placeholder="Empresa/Institucion" name="institutions-input" value={datos.institutions} required onChange={event => handleOtherClick(event)}></input>
+                        <input type="text" list="typePerson" placeholder="Tipo usuario" value={datos.typePerson}></input>
                         <datalist id="institutions" name="institution">
                             <option value="Politecnico Jaime Isaza Cadavid"></option>
                             <option value="Sofka Technologies"></option>
@@ -83,10 +109,7 @@ export const CreatePersonModal = (props) => {
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={handleAddPerson}>Agregar</Button>
-                    <Button variant="primary" onClick={handleClose}>
-                        Save Changes
-                    </Button>
+                    <Button variant="primary" onClick={handleAddPerson}>{textoBoton}</Button>
                 </Modal.Footer>
             </Modal>
         </>
