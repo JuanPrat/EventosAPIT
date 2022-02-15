@@ -10,9 +10,9 @@
     margin: 10px;
 }
 
-.card img {
-    height: 10rem;
+#card-img {
     width: 10rem;
+    height: 10rem;
 }
 
 .card .button {

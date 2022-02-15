@@ -5,6 +5,7 @@ nav {
     background-color: #196844;
     height: 60px;
     z-index: 2;
+    width: 100%;
   }
   
   nav #hamburguer-button {

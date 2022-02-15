@@ -14,10 +14,10 @@ export const Footer = () => {
                     <h6>Carrera  58 No. 27 B – 125 Bello | Tel: (+57 4) 452 09 99</h6>
                 </section>
                 <section className='footer-social-media'>
-                    <a className="facebook" id="social-media-icon" target="blank" href="https://www.facebook.com/polijic/"><i class="fa fa-facebook-square fa-3x" aria-hidden="true" ></i></a>
-                    <a className="twitter" id="social-media-icon" target="blank" href="https://twitter.com/politecnicoJIC"><i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i></a>
-                    <a className="instagram" id="social-media-icon" target="blank" href="https://www.instagram.com/politecnicojic/?hl=es-la"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a>
-                    <a className="youtube" id="social-media-icon" target="blank" href="https://www.youtube.com/channel/UCLSaxR0qrhvgCg2SUVW84FQ/videos"><i class="fa fa-youtube fa-3x" aria-hidden="true"></i></a>
+                    <a className="facebook" id="social-media-icon" target="blank" href="https://www.facebook.com/polijic/"><i className="fa fa-facebook-square fa-3x" aria-hidden="true" ></i></a>
+                    <a className="twitter" id="social-media-icon" target="blank" href="https://twitter.com/politecnicoJIC"><i className="fa fa-twitter-square fa-3x" aria-hidden="true"></i></a>
+                    <a className="instagram" id="social-media-icon" target="blank" href="https://www.instagram.com/politecnicojic/?hl=es-la"><i className="fa fa-instagram fa-3x" aria-hidden="true"></i></a>
+                    <a className="youtube" id="social-media-icon" target="blank" href="https://www.youtube.com/channel/UCLSaxR0qrhvgCg2SUVW84FQ/videos"><i className="fa fa-youtube fa-3x" aria-hidden="true"></i></a>
                 </section>
             </div>
             <div className="regards">

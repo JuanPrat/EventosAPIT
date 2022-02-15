@@ -26,8 +26,8 @@ export const Home = (props) => {
       <div className="body">
         <div className='wallContainer'>
           <div className="centered"><h1><b>Eventos Apit</b>
-            <br></br><h1>Plataforma de eventos académicos del área de 
-            tecnología</h1></h1></div>
+            <br></br>Plataforma de eventos académicos del área de
+              tecnología</h1></div>
           <img id="wallpaper" />
         </div>
         <section className="body">
@@ -36,35 +36,22 @@ export const Home = (props) => {
           </form>
           <section className="eventos">
             <div className="evento">
-              <Card eventTitle="Tecno Café" eventDescription="Lorem ipsum dolor sit amet consectetur adipiscing elit eu justo, platea dictum ornare fringilla pretium urna scelerisque quam, posuere magna sem parturient nibh penatibus rutrum egestas." eventImg="1" speaker="Hernando Recaman Chaux" ubication="P40-604" date="12-04-2022"></Card>
+              <Card eventTitle="Tecno Café"
+                eventDescription="Lorem ipsum dolor sit amet consectetur adipiscing elit eu justo, platea dictum ornare fringilla pretium urna scelerisque quam, posuere magna sem parturient nibh penatibus rutrum egestas."
+                eventImg="1"
+                speaker="Hernando Recaman Chaux"
+                ubication="P40-604"
+                date="12-04-2022"></Card>
             </div>
             <div className="evento">
-              <Card eventTitle="Tecno Café" eventDescription="Lorem ipsum dolor sit amet consectetur adipiscing elit eu justo, platea dictum ornare fringilla pretium urna scelerisque quam, posuere magna sem parturient nibh penatibus rutrum egestas." eventImg="2" speaker="Hernando Recaman Chaux" ubication="P40-604" date="12-04-2022"></Card>
+              <Card eventTitle="Tecno Café"
+                eventDescription="Lorem ipsum dolor sit amet consectetur adipiscing elit eu justo, platea dictum ornare fringilla pretium urna scelerisque quam, posuere magna sem parturient nibh penatibus rutrum egestas."
+                eventImg="2"
+                speaker="Hernando Recaman Chaux"
+                ubication="P40-604"
+                date="12-04-2022"></Card>
             </div>
-            <div className="evento">
-              <Card eventTitle="Tecno Café" eventDescription="Lorem ipsum dolor sit amet consectetur adipiscing elit eu justo, platea dictum ornare fringilla pretium urna scelerisque quam, posuere magna sem parturient nibh penatibus rutrum egestas." eventImg="1" speaker="Hernando Recaman Chaux" ubication="P40-604" date="12-04-2022"></Card>
-            </div>
-            <div className="evento">
-              <Card eventTitle="Tecno Café" eventDescription="Lorem ipsum dolor sit amet consectetur adipiscing elit eu justo, platea dictum ornare fringilla pretium urna scelerisque quam, posuere magna sem parturient nibh penatibus rutrum egestas." eventImg="2" speaker="Hernando Recaman Chaux" ubication="P40-604" date="12-04-2022"></Card>
-            </div>
-            <div className="evento">
-              <Card eventTitle="Tecno Café" eventDescription="Lorem ipsum dolor sit amet consectetur adipiscing elit eu justo, platea dictum ornare fringilla pretium urna scelerisque quam, posuere magna sem parturient nibh penatibus rutrum egestas." eventImg="1" speaker="Hernando Recaman Chaux" ubication="P40-604" date="12-04-2022"></Card>
-            </div>
-            <div className="evento">
-              <Card eventTitle="Tecno Café" eventDescription="Lorem ipsum dolor sit amet consectetur adipiscing elit eu justo, platea dictum ornare fringilla pretium urna scelerisque quam, posuere magna sem parturient nibh penatibus rutrum egestas." eventImg="2" speaker="Hernando Recaman Chaux" ubication="P40-604" date="12-04-2022"></Card>
-            </div>
-            <div className="evento">
-              <Card eventTitle="Tecno Café" eventDescription="Lorem ipsum dolor sit amet consectetur adipiscing elit eu justo, platea dictum ornare fringilla pretium urna scelerisque quam, posuere magna sem parturient nibh penatibus rutrum egestas." eventImg="2" speaker="Hernando Recaman Chaux" ubication="P40-604" date="12-04-2022"></Card>
-            </div>
-            <div className="evento">
-              <Card eventTitle="Tecno Café" eventDescription="Lorem ipsum dolor sit amet consectetur adipiscing elit eu justo, platea dictum ornare fringilla pretium urna scelerisque quam, posuere magna sem parturient nibh penatibus rutrum egestas." eventImg="2" speaker="Hernando Recaman Chaux" ubication="P40-604" date="12-04-2022"></Card>
-            </div>
-            <div className="evento">
-              <Card eventTitle="Tecno Café" eventDescription="Lorem ipsum dolor sit amet consectetur adipiscing elit eu justo, platea dictum ornare fringilla pretium urna scelerisque quam, posuere magna sem parturient nibh penatibus rutrum egestas." eventImg="2" speaker="Hernando Recaman Chaux" ubication="P40-604" date="12-04-2022"></Card>
-            </div>
-            <div className="evento">
-              <Card eventTitle="Tecno Café" eventDescription="Lorem ipsum dolor sit amet consectetur adipiscing elit eu justo, platea dictum ornare fringilla pretium urna scelerisque quam, posuere magna sem parturient nibh penatibus rutrum egestas." eventImg="2" speaker="Hernando Recaman Chaux" ubication="P40-604" date="12-04-2022"></Card>
-            </div>
+            
           </ section>
         </section>
       </div>
