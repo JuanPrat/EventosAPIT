@@ -1,0 +1,12 @@
+.flex-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+.myevents-container{
+ height: 100vh;
+ width: 100vw;
+ align-content: center;
+}

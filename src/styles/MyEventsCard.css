@@ -1,0 +1,23 @@
+.myevents-card{
+    width: 60vw;
+    height: 20vh;
+    border-radius: 50px;
+    background-color: red;
+    margin: 1rem;
+}
+
+img {
+    height: 50px;
+    width: 50px;
+    
+}
+
+.myevents-card-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1;
+}
+
+.grid-center{
+    grid-column: 2 / 4;   
+}
