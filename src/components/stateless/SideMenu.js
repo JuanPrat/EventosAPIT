@@ -5,8 +5,6 @@ import { Button } from 'react-bootstrap'
 
 export const SideMenu = (data) => {
 
-
-
     useEffect(() => {
         const element = document.getElementById("sidebar-container")
         const actualClass = element.className;
@@ -24,20 +22,20 @@ export const SideMenu = (data) => {
             <Link to='/administration/'>
                 <Button variant="sucess" className="button-nav" onClick={handleCloseSideMenu}>Administrar</Button>
             </Link>
-            <Link to="/">
-                <Button variant="sucess" className="button-nav">Mis Eventos</Button>
+            <Link to="/myevents/">
+                <Button variant="sucess" className="button-nav" onClick={handleCloseSideMenu}>Mis Eventos</Button>
             </Link>
             <Link to="/">
-                <Button variant="sucess" className="button-nav">Inscripciones</Button>
+                <Button variant="sucess" className="button-nav" onClick={handleCloseSideMenu}>Inscripciones</Button>
             </Link>
             <Link to="/">
-                <Button variant="sucess" className="button-nav">Iniciar Sesión</Button>
+                <Button variant="sucess" className="button-nav" onClick={handleCloseSideMenu}>Iniciar Sesión</Button>
             </Link>
             <Link to="/">
-                <Button variant="sucess" className="button-nav">Perfil</Button>
+                <Button variant="sucess" className="button-nav" onClick={handleCloseSideMenu}>Perfil</Button>
             </Link>
             <Link to="/">
-                <Button variant="sucess" className="button-nav">Cerrar Sesión</Button>
+                <Button variant="sucess" className="button-nav" onClick={handleCloseSideMenu}>Cerrar Sesión</Button>
             </Link>
         </div>
     )
