@@ -2,13 +2,16 @@
     width: 60vw;
     height: 20vh;
     border-radius: 50px;
-    background-color: red;
+    background-color: cadetblue;
     margin: 1rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 5px 5px;
 }
 
-img {
-    height: 50px;
-    width: 50px;
+#myevents-card-img {
+    height: 60px;
+    width: 60px;
     
 }
 
@@ -16,6 +19,9 @@ img {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1;
+    width: 100%;
+    place-items: center;
+    
 }
 
 .grid-center{

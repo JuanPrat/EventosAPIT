@@ -1,0 +1,24 @@
+.flex-profile-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.profile-container{
+    height: 100vh;
+    width: 100vw;
+}
+
+#perfil-profile-page{
+    height: 100px;
+    width: 100px;
+}
+
+#profile-button-guardar{
+    display: none;
+}
+
+.flex-profile-container > input{
+    margin: 5px;
+}

@@ -27,7 +27,7 @@ export const MyEventsCard = (datosEntrada) => {
             <div className='myevents-card-grid'>
                 <img id="myevents-card-img" alt="imagen del evento" src="https://thumbs.dreamstime.com/z/calendario-de-eventos-concepto-para-el-evento-organizador-personal-vector-plano-116902701.jpg" />
                 <div className='grid-center'>
-                    <h4 className='title'>Titulo</h4>
+                    <h4 className='title'>{eventTitle}</h4>
                     <Link to={`/eventPage/${eventImg}/${eventTitle}/${eventDescription}/${speaker}/${ubication}/${date}`}>
                         <Button className='button'>Ver Detalle</Button>
                     </Link>

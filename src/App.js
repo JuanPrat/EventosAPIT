@@ -8,6 +8,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { AdministrationPage } from './pages/AdministrationPage';
 import {Footer} from './components/stateless/Footer'
 import {MyEventsPage} from './pages/MyEventsPage'
+import {InscriptionsPage} from './pages/InscriptionsPage'
+import { ProfilePage } from './pages/ProfilePage';
 
 function App(props) {
   return (
@@ -24,6 +26,8 @@ function App(props) {
         <EventPage path="/eventPage/:eventImg/:eventTitle/:eventDescription/:speaker/:ubication/:date"></EventPage>
         <AdministrationPage path="/administration/"></AdministrationPage>
         <MyEventsPage path="/myevents/"></MyEventsPage>
+        <InscriptionsPage path="/myinscriptions/"></InscriptionsPage>
+        <ProfilePage path="/myprofile/"></ProfilePage>
       </Router>
       <Footer></Footer>
     </div>

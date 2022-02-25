@@ -25,13 +25,13 @@ export const SideMenu = (data) => {
             <Link to="/myevents/">
                 <Button variant="sucess" className="button-nav" onClick={handleCloseSideMenu}>Mis Eventos</Button>
             </Link>
-            <Link to="/">
+            <Link to="/myinscriptions/">
                 <Button variant="sucess" className="button-nav" onClick={handleCloseSideMenu}>Inscripciones</Button>
             </Link>
             <Link to="/">
                 <Button variant="sucess" className="button-nav" onClick={handleCloseSideMenu}>Iniciar Sesión</Button>
             </Link>
-            <Link to="/">
+            <Link to="/myprofile/">
                 <Button variant="sucess" className="button-nav" onClick={handleCloseSideMenu}>Perfil</Button>
             </Link>
             <Link to="/">
